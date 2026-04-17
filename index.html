@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f59e0b">
+  <meta name="google-site-verification" content="8_dBFZ4xsSR2GSwhZkKBVHbrXmJgT5wxUnMSf3mR0gg">
+  <title>Korean Text Expander &amp; Clipboard Manager for Mac and Windows | TikiTaka</title>
+  <meta name="description" content="TikiTaka is a Korean-aware text expander and clipboard history manager for Mac and Windows. Replace short shortcuts with text, images, or custom variables — even mid-composition in Korean, Japanese, and Chinese IME. A lightweight TextExpander, Typinator, and Espanso alternative with local-first storage and optional cloud sync.">
+  <meta name="keywords" content="text expander, text expander mac, text expander windows, text expander for mac, text expansion software, text replacement, text substitution, text automation, text macro, autotext, boilerplate, snippet manager, snippet expansion, shortcut expander, abbreviation expander, auto text expander, clipboard manager, clipboard manager mac, clipboard history, image expansion, image snippet, image replacement, custom variables, date snippets, korean text expander, hangul text expander, japanese text expander, chinese text expander, IME text expander, CJK text expander, TextExpander alternative, Typinator alternative, Espanso alternative, aText alternative, PhraseExpress alternative, Beeftext alternative, 텍스트 확장기, 한글 텍스트 확장기, 한글 텍스트 확장, 맥 텍스트 확장, 윈도우 텍스트 확장, 단축어 확장, 단축어 치환, 단축키 텍스트 확장, 이미지 치환, 이미지 확장, 클립보드 히스토리, 클립보드 매니저, 사용자 변수, 스니펫 관리, 한글 스니펫, 한글 매크로, 한글 자동완성, 한영 자동 변환, 한글 IME 텍스트 확장, 라이트키">
+  <link rel="canonical" href="https://tiki-taka.work/">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/style.css">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TikiTaka">
+  <meta property="og:title" content="Korean Text Expander &amp; Clipboard Manager for Mac and Windows | TikiTaka">
+  <meta property="og:description" content="Fast text expansion, image snippets, custom variables, and clipboard history for Mac and Windows. The trigger fires mid-syllable in Korean, Japanese, and Chinese IME input. A TextExpander / Typinator / Espanso alternative.">
+  <meta property="og:image" content="https://tiki-taka.work/assets/demo-poster.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="TikiTaka snippet editor with Korean shortcut expanding mid-composition">
+  <meta property="og:url" content="https://tiki-taka.work/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ko_KR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Korean Text Expander &amp; Clipboard Manager for Mac and Windows | TikiTaka">
+  <meta name="twitter:description" content="Fast text expansion, image snippets, custom variables, and clipboard history. Works mid-syllable in Korean, Japanese, and Chinese IME input.">
+  <meta name="twitter:image" content="https://tiki-taka.work/assets/demo-poster.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TikiTaka",
+    "alternateName": ["라이트키", "한글 텍스트 확장기", "TikiTaka Text Expander", "TikiTaka — Korean Text Expander"],
+    "description": "Korean-aware text expander and clipboard history manager for Windows and macOS. Triggers fire mid-composition in Korean, Japanese, and Chinese IME input. Supports text replacement, image expansion, custom variables, and autotext/boilerplate snippets.",
+    "url": "https://tiki-taka.work/",
+    "applicationCategory": "ProductivityApplication",
+    "applicationSubCategory": "Text Expander",
+    "operatingSystem": "macOS, Windows",
+    "keywords": "text expander, text expander mac, text expander windows, korean text expander, hangul text expander, clipboard manager, clipboard history, snippet manager, text replacement, text substitution, text automation, autotext, boilerplate, shortcut expander, image expansion, image replacement, custom variables, CJK text expander, IME text expander, TextExpander alternative, Typinator alternative, Espanso alternative, 한글 텍스트 확장기, 한글 자동완성, 한글 매크로, 한글 스니펫, 단축키 텍스트 확장, 클립보드 히스토리, 라이트키",
+    "featureList": [
+      "Instant text expansion with a single keystroke",
+      "Works mid-composition in Korean, Japanese, and Chinese IME input",
+      "Clipboard history for text and images",
+      "Custom variables with date/time format tokens",
+      "Image snippet expansion",
+      "Optional cloud sync via Google Drive or WebDAV",
+      "Local-first, no telemetry, no accounts"
+    ],
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro",
+        "price": "9.99",
+        "priceCurrency": "USD"
+      }
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "soon83",
+      "url": "https://github.com/soon83"
+    },
+    "image": "https://tiki-taka.work/assets/demo-poster.jpg",
+    "downloadUrl": "https://github.com/soon83/tikitaka/releases/latest",
+    "softwareVersion": "2.12.19"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is TikiTaka?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TikiTaka is a text expander and clipboard history manager for Windows and macOS. You register phrases you type every day as short shortcuts, and a single keystroke expands them in place inside any application. It also stores a searchable history of text and images you've copied, and supports custom variables like ${email} or ${date:yyyy-MM-dd}."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is TikiTaka different from TextExpander, Typinator, or Espanso?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TikiTaka's trigger fires even while you're still composing a Korean, Japanese, or Chinese character — you don't have to finish the syllable first. Most Western text expanders assume the character is already committed, which makes them break on CJK IME input. TikiTaka is also a one-time purchase with no subscription, no accounts, and no telemetry."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does TikiTaka work with Hangul (Korean) IME?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. TikiTaka is built around first-class Hangul IME support. You can mix Korean and Latin keywords inside a single snippet, and the trigger fires mid-composition — no need to commit the current syllable first. Japanese and Chinese IME are supported with the same mid-composition handling."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "한글 텍스트 확장기란 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "한글 텍스트 확장기는 자주 쓰는 문장을 짧은 단축어로 등록해 두고, 단축키 한 번으로 그 자리에서 전체 문장으로 펼쳐 주는 프로그램입니다. TikiTaka 는 한글 조합 중에도 트리거가 정상 동작하기 때문에 입력 리듬을 끊지 않고 사용할 수 있으며, 텍스트·이미지·사용자 변수를 모두 치환할 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "TikiTaka 는 무료인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "무료 버전에서 그룹 1개와 단축어 10개, 클립보드 히스토리, 사용자 변수를 모두 사용할 수 있습니다. 단축어를 무제한으로 쓰거나 Google Drive / WebDAV 클라우드 동기화를 쓰려면 1회 결제로 Pro 라이선스를 구매하면 되며, 14일 이내 환불이 보장됩니다."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-lang="en">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="#top" class="brand">
+      <img src="assets/logo-256.png" alt="TikiTaka">
+      <span>TikiTaka</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#pricing">Pricing</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="terms.html#refund-policy">Refund</a>
+      <a href="https://github.com/soon83/tikitaka">GitHub</a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-set-lang="ko" aria-pressed="false">한국어</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ════════ English ════════ -->
+  <div lang="en">
+
+    <section class="hero">
+      <img src="assets/logo-256.png" alt="TikiTaka logo" class="hero-logo">
+      <h1 class="hero-title">Type less. Get more done.</h1>
+      <p class="hero-subtitle">
+        A Korean-aware text expander, autotext tool, and clipboard history manager
+        for Windows and macOS. Register the phrases you type every day as short
+        shortcuts, and a single keyboard trigger replaces them in place with your
+        full snippet — text, images, or custom variables — even while you're still
+        composing a Korean, Japanese, or Chinese character.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-mac" id="dl-mac-en" href="#">
+          ⬇ Mac (Apple Silicon)
+        </a>
+        <a class="btn btn-mac btn-mac-disabled" href="#" onclick="alert('Intel Mac version is coming soon.');return false;">
+          Mac (Intel) — Coming Soon
+        </a>
+        <a class="btn btn-win" id="dl-win-en" href="#">
+          ⬇ Windows
+        </a>
+      </div>
+    </section>
+
+    <!-- ── Features ──────────────────────────────────────── -->
+    <section class="container">
+      <h2 class="section-title">Built for daily friction</h2>
+      <p class="section-lead">
+        Boilerplate, addresses, code snippets, autotext replies, signatures — all reachable
+        from a single keyboard shortcut, in any application, in any language. Text replacement,
+        image expansion, and custom variables work the same way everywhere.
+      </p>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">Instant text expansion &amp; replacement</h3>
+          <p class="feature-desc">
+            Type a shortcut, leave your cursor at the end of it, and hit your trigger
+            (default: <code>Ctrl + \</code>). The shortcut is replaced in place with
+            your full snippet — a sentence, a paragraph, boilerplate, code, an autotext
+            reply — right inside whatever app you were already typing in.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">字</div>
+          <h3 class="feature-title">Works mid-composition in CJK input</h3>
+          <p class="feature-desc">
+            The trigger fires even while you're still in the middle of composing a
+            Korean, Japanese, or Chinese character — you don't have to finish the
+            syllable first. Mix CJK and Latin keywords freely inside a single snippet.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3 class="feature-title">Clipboard history &amp; image snippets</h3>
+          <p class="feature-desc">
+            Need something you copied twenty minutes ago? It's still there. TikiTaka
+            keeps a searchable clipboard history of every text and image you've copied,
+            and image snippets can be triggered the same way as text — type the shortcut,
+            hit the trigger, the image is pasted. Open the popup
+            (recommended: <code>Ctrl + Alt + \</code>), pick it, paste it.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">{ }</div>
+          <h3 class="feature-title">Custom variables</h3>
+          <p class="feature-desc">
+            Define reusable values like <code>${email}</code>, <code>${signature}</code>,
+            or <code>${date:yyyy-MM-dd}</code> with full date/time format tokens.
+            Update once and every snippet that uses them updates instantly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    
+<!-- ── How it works ──────────────────────────────────── -->
+    <section class="container">
+      <h2 class="section-title">How it works</h2>
+      <p class="section-lead">Three steps. No learning curve.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Define your snippets</h3>
+          <p class="step-desc">
+            Add reusable text — boilerplate, code, addresses, signatures — and
+            give each one a short keyword like <code>addr</code> or <code>sig</code>.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Type the keyword</h3>
+          <p class="step-desc">
+            While typing in any application, type the keyword you defined.
+            Your work flow stays in whatever app you were already using.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Hit your trigger</h3>
+          <p class="step-desc">
+            Press your configured trigger (default: <code>Ctrl + \</code>).
+            The keyword is replaced with the full snippet — instantly, in place.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    
+<!-- ── Use cases ─────────────────────────────────────── -->
+    <section class="alt-bg">
+      <div class="container">
+      <h2 class="section-title">Built for everyone who types</h2>
+      <p class="section-lead">If you find yourself retyping the same things, TikiTaka is for you.</p>
+      <div class="use-cases">
+        <div class="use-case">
+          <div class="use-case-icon">💻</div>
+          <div class="use-case-text">
+            <strong>Developers</strong>
+            <span>Code templates, git commands, log queries, error messages.</span>
+          </div>
+        </div>
+        <div class="use-case">
+          <div class="use-case-icon">📨</div>
+          <div class="use-case-text">
+            <strong>Customer support</strong>
+            <span>Canned responses, links, FAQ snippets, escalation templates.</span>
+          </div>
+        </div>
+        <div class="use-case">
+          <div class="use-case-icon">✍️</div>
+          <div class="use-case-text">
+            <strong>Writers &amp; editors</strong>
+            <span>Boilerplate sentences, signatures, formatted dates, citations.</span>
+          </div>
+        </div>
+        <div class="use-case">
+          <div class="use-case-icon">🌐</div>
+          <div class="use-case-text">
+            <strong>Multilingual users</strong>
+            <span>Switch between English, Korean, Japanese, Chinese without breaking flow.</span>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    
+<!-- ── Principles ────────────────────────────────────── -->
+    <section class="container">
+      <h2 class="section-title">Principles</h2>
+      <p class="section-lead">What makes TikiTaka different.</p>
+      <div class="principles">
+        <div class="principle">
+          <span class="principle-check">✓</span>
+          <div class="principle-text"><strong>Local-first.</strong> <span>Snippets live on your machine. Cloud sync is opt-in.</span></div>
+        </div>
+        <div class="principle">
+          <span class="principle-check">✓</span>
+          <div class="principle-text"><strong>No telemetry.</strong> <span>Zero analytics, zero tracking, zero phone-home.</span></div>
+        </div>
+        <div class="principle">
+          <span class="principle-check">✓</span>
+          <div class="principle-text"><strong>Keyboard-first.</strong> <span>Snippets, clipboard history, and settings — all reachable without touching the mouse.</span></div>
+        </div>
+        <div class="principle">
+          <span class="principle-check">✓</span>
+          <div class="principle-text"><strong>IME-aware.</strong> <span>Works while you're still composing Korean, Japanese, or Chinese.</span></div>
+        </div>
+      </div>
+    </section>
+
+    
+<!-- ── Demo video ────────────────────────────────────── -->
+    <section class="container" id="demo">
+      <h2 class="section-title">Watch it in action</h2>
+      <p class="section-lead">A short walkthrough — install, text expansion, image expansion, and custom variables.</p>
+      <div class="demo-video">
+        <video
+          controls
+          preload="none"
+          playsinline
+          poster="assets/demo-poster.jpg"
+          src="assets/demo.mp4">
+          Your browser does not support the video tag.
+          <a href="assets/demo.mp4">Download the demo video</a>.
+        </video>
+      </div>
+    </section>
+
+    
+<!-- ── Screenshots ───────────────────────────────────── -->
+    <section class="alt-bg">
+      <div class="container">
+      <h2 class="section-title">See it in action</h2>
+      <p class="section-lead">Snippets, clipboard history, custom variables, settings — all in one focused interface.</p>
+
+      <div class="screenshot-block">
+        <h3 class="screenshot-heading">Snippets</h3>
+        <p class="screenshot-caption">Organize shortcuts into groups and edit them inline.</p>
+        <div class="screenshot-frame">
+          <img src="screenshots/en_dark_snippets_v2.12.33.png" alt="TikiTaka snippet editor — text expansion shortcuts grouped for quick recall on macOS" loading="lazy">
+        </div>
+      </div>
+
+      <div class="screenshot-block">
+        <h3 class="screenshot-heading">Search</h3>
+        <p class="screenshot-caption">Find shortcuts by keyword, replacement text, or Korean consonants.</p>
+        <div class="screenshot-frame">
+          <img src="screenshots/en_dark_search_v2.12.33.png" alt="TikiTaka fuzzy search — find snippets by keyword or Korean initial consonants" loading="lazy">
+        </div>
+      </div>
+
+      <div class="screenshot-block">
+        <h3 class="screenshot-heading">Clipboard history</h3>
+        <p class="screenshot-caption">Recent text and images, recalled with a configurable shortcut.</p>
+        <div class="screenshot-frame">
+          <img src="screenshots/en_dark_clipboardhistory_v2.12.33.png" alt="TikiTaka clipboard history — recall recent text and images by keyboard shortcut" loading="lazy">
+        </div>
+      </div>
+
+      <div class="screenshot-block">
+        <h3 class="screenshot-heading">Custom variables</h3>
+        <p class="screenshot-caption">Reusable values with rich date/time formatting tokens.</p>
+        <div class="screenshot-frame">
+          <img src="screenshots/en_dark_customvariables_v2.12.33.png" alt="TikiTaka custom variables — reusable tokens like email and date for snippet replacement" loading="lazy">
+        </div>
+      </div>
+
+      <div class="screenshot-block">
+        <h3 class="screenshot-heading">Settings</h3>
+        <p class="screenshot-caption">Triggers, themes, automation — all in one place.</p>
+        <div class="screenshot-frame">
+          <img src="screenshots/en_dark_settings_v2.12.33.png" alt="TikiTaka settings — trigger keys, themes, and clipboard history preferences" loading="lazy">
+        </div>
+      </div>
+      </div>
+    </section>
+
+<!-- ── Cloud sync ────────────────────────────────────── -->
+    <section class="alt-bg">
+      <div class="container">
+        <h2 class="section-title">Optional cloud sync — your data, your storage</h2>
+        <p class="section-lead">
+          Sync your snippets across devices without giving them up. TikiTaka runs no
+          servers of its own — pick the cloud you already trust, and your data goes
+          straight there. Disabled by default.
+        </p>
+        <div class="sync-providers">
+          <div class="sync-provider">
+            <div class="sync-provider-logo">☁</div>
+            <h3>Google Drive</h3>
+            <p>
+              Stored in the app-specific hidden folder. TikiTaka only requests the
+              <code>drive.appdata</code> scope — it cannot see, modify, or delete
+              any other file in your Drive.
+            </p>
+          </div>
+          <div class="sync-provider">
+            <div class="sync-provider-logo">⛁</div>
+            <h3>WebDAV</h3>
+            <p>
+              Bring your own server — Nextcloud, Synology, ownCloud, or any
+              standard WebDAV endpoint. Your data goes directly to it, not through
+              any third party.
+            </p>
+          </div>
+        </div>
+        <p class="sync-note">
+          Conflict-aware: when two devices change the same data, TikiTaka shows you both sides
+          and automatically backs up the previous remote version before any overwrite.
+        </p>
+      </div>
+    </section>
+
+    
+<!-- ── What you get (product details for transparency) ── -->
+    <section class="container">
+      <h2 class="section-title">What you get</h2>
+      <p class="section-lead">
+        A straightforward downloadable desktop app — no subscriptions, no accounts, no tracking.
+      </p>
+      <div class="product-details">
+        <div class="product-detail">
+          <div class="product-detail-label">Product</div>
+          <div class="product-detail-value">Downloadable desktop application for Windows and macOS</div>
+        </div>
+        <div class="product-detail">
+          <div class="product-detail-label">Delivery</div>
+          <div class="product-detail-value">Instant — license key emailed immediately after purchase, activated inside the app</div>
+        </div>
+        <div class="product-detail">
+          <div class="product-detail-label">License</div>
+          <div class="product-detail-value">Proprietary, single-user commercial license. One active device at a time — deactivate from within the app to move to another machine.</div>
+        </div>
+        <div class="product-detail">
+          <div class="product-detail-label">Purchase type</div>
+          <div class="product-detail-value">One-time purchase — not a subscription. Lifetime updates included.</div>
+        </div>
+        <div class="product-detail">
+          <div class="product-detail-label">Audience</div>
+          <div class="product-detail-value">Individuals and professionals — developers, support staff, writers, multilingual typists.</div>
+        </div>
+        <div class="product-detail">
+          <div class="product-detail-label">Refund</div>
+          <div class="product-detail-value">
+            14 days, no questions asked —
+            <a href="terms.html#refund-policy">see refund policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+<!-- ── Pricing ───────────────────────────────────────── -->
+    <section class="alt-bg" id="pricing">
+      <div class="container">
+        <h2 class="section-title">Pricing</h2>
+        <p class="section-lead">Start free. Upgrade once, keep it forever.</p>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3 class="pricing-tier">Free</h3>
+            <div class="pricing-amount">$0</div>
+            <ul class="pricing-features">
+              <li>1 group, up to 10 shortcuts</li>
+              <li>Clipboard history</li>
+              <li>Custom variables</li>
+              <li>Local-first, no telemetry</li>
+              <li>Lifetime updates</li>
+            </ul>
+          </div>
+          <div class="pricing-card pricing-card-highlight">
+            <h3 class="pricing-tier">Pro</h3>
+            <div class="pricing-amount"><span class="pricing-once">one-time purchase</span></div>
+            <ul class="pricing-features">
+              <li><strong>Everything in Free, plus:</strong></li>
+              <li>Unlimited groups &amp; shortcuts</li>
+              <li>Cloud sync — Google Drive or WebDAV</li>
+              <li>One active device at a time — deactivate to move the license to another machine</li>
+              <li>14-day refund, no questions asked</li>
+            </ul>
+            <p class="pricing-note">
+              Upgrade from within the app after installing — Settings → License → Buy Pro.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+  </div>
+
+  <!-- ════════ 한국어 ════════ -->
+  <div lang="ko">
+
+    <section class="hero">
+      <img src="assets/logo-256.png" alt="TikiTaka 로고" class="hero-logo">
+      <h1 class="hero-title">덜 치고, 더 빨리 끝냅니다.</h1>
+      <p class="hero-subtitle">
+        Windows · macOS 용 한글 텍스트 확장기와 클립보드 히스토리 매니저.
+        자주 쓰는 문장을 짧은 단축어로 등록해 두고, 타이핑 도중에 트리거를
+        누르면 그 자리에서 바로 펼쳐집니다. 한글 조합 중에도 그대로 동작하며,
+        텍스트·이미지·사용자 변수 모두 치환됩니다.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-mac" id="dl-mac-ko" href="#">
+          ⬇ Mac (Apple Silicon)
+        </a>
+        <a class="btn btn-mac btn-mac-disabled" href="#" onclick="alert('Intel Mac 버전은 준비 중입니다.');return false;">
+          Mac (Intel) — 준비 중
+        </a>
+        <a class="btn btn-win" id="dl-win-ko" href="#">
+          ⬇ Windows
+        </a>
+      </div>
+    </section>
+
+    <!-- ── Features ──────────────────────────────────────── -->
+    <section class="container">
+      <h2 class="section-title">매일 반복되는 입력은 단축키 한 번으로</h2>
+      <p class="section-lead">
+        자주 쓰는 답변, 주소, 코드 조각, 서명, 자동완성 매크로 — 어떤 앱에서든 어떤 언어로든
+        단축키 한 번으로 끝냅니다. 단축어 치환, 이미지 치환, 사용자 변수 모두 같은 방식으로 동작합니다.
+      </p>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">키워드 한 번에 펼쳐지는 단축어</h3>
+          <p class="feature-desc">
+            등록해 둔 키워드 끝에 커서를 두고 트리거 (기본값 <code>Ctrl + \</code>) 를
+            누르면, 그 자리에서 바로 대체어로 치환됩니다. 작업 중이던 앱을
+            벗어날 필요 없이 어디서든 그대로 동작합니다.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">字</div>
+          <h3 class="feature-title">한·중·일 조합 중에도 그대로 동작</h3>
+          <p class="feature-desc">
+            한글 받침을 조합하고 있는 도중에 트리거를 눌러도 그 자리에서 대체어로
+            치환됩니다. 일본어, 중국어 입력기도 마찬가지입니다. 하나의 단축어
+            안에 한국어, 영어, 중국어, 일본어 키워드를 자유롭게 섞어 쓸 수 있습니다.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3 class="feature-title">클립보드 히스토리 · 이미지 치환</h3>
+          <p class="feature-desc">
+            한참 전에 복사해 둔 내용도 다시 꺼내 쓸 수 있습니다. 원본 페이지로
+            돌아가 다시 복사할 필요 없이, 팝업 (권장: <code>Ctrl + Alt + \</code>) 을
+            열고 예전에 복사했던 텍스트나 이미지를 그대로 고르면 됩니다. 이미지도
+            단축어로 등록해 두면 텍스트 치환과 똑같이 트리거 한 번으로 붙여넣어집니다.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">{ }</div>
+          <h3 class="feature-title">사용자 변수</h3>
+          <p class="feature-desc">
+            <code>${email}</code>, <code>${signature}</code>,
+            <code>${date:yyyy-MM-dd}</code> 같은 재사용 값을 한 번만 정의하면,
+            그 값을 쓰는 모든 단축어가 한꺼번에 같이 바뀝니다. 날짜·시간 포맷
+            토큰도 폭넓게 지원합니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    
+<!-- ── How it works ──────────────────────────────────── -->
+    <section class="container">
+      <h2 class="section-title">사용 방법</h2>
+      <p class="section-lead">세 단계면 끝납니다. 따로 익힐 게 없습니다.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3 class="step-title">단축어 등록</h3>
+          <p class="step-desc">
+            자주 쓰는 문장·코드·주소·서명을 추가하고
+            <code>addr</code>, <code>sig</code> 같은 짧은 키워드를 붙입니다.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3 class="step-title">키워드 입력</h3>
+          <p class="step-desc">
+            어디서든 — 메일, 채팅, 코드 편집기, 어디든 — 등록해 둔 키워드를
+            그대로 칩니다. 다른 창으로 옮길 필요 없습니다.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3 class="step-title">트리거 한 번</h3>
+          <p class="step-desc">
+            설정한 트리거 (기본값 <code>Ctrl + \</code>) 를 한 번 누르면,
+            키워드 자리에 단축어 전체가 그대로 들어갑니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    
+<!-- ── Use cases ─────────────────────────────────────── -->
+    <section class="alt-bg">
+      <div class="container">
+      <h2 class="section-title">매일 키보드를 두드리는 모두를 위해</h2>
+      <p class="section-lead">같은 말을 매일 다시 치고 있다면, TikiTaka 가 그 시간을 돌려드립니다.</p>
+      <div class="use-cases">
+        <div class="use-case">
+          <div class="use-case-icon">💻</div>
+          <div class="use-case-text">
+            <strong>개발자</strong>
+            <span>코드 스니펫, git 명령어, 로그 쿼리, 에러 메시지 — 외울 필요 없이 키워드 한 번.</span>
+          </div>
+        </div>
+        <div class="use-case">
+          <div class="use-case-icon">📨</div>
+          <div class="use-case-text">
+            <strong>고객 응대</strong>
+            <span>자주 쓰는 답변, 안내 링크, FAQ 문구, 상위 이관 템플릿.</span>
+          </div>
+        </div>
+        <div class="use-case">
+          <div class="use-case-icon">✍️</div>
+          <div class="use-case-text">
+            <strong>작가 / 편집자</strong>
+            <span>고정 문장, 서명, 정형 날짜, 인용 — 매번 똑같이 다시 칠 필요 없습니다.</span>
+          </div>
+        </div>
+        <div class="use-case">
+          <div class="use-case-icon">🌐</div>
+          <div class="use-case-text">
+            <strong>다국어 사용자</strong>
+            <span>한국어·일본어·중국어·영어 사이를 오가도 입력 리듬이 그대로 유지됩니다.</span>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    
+<!-- ── Principles ────────────────────────────────────── -->
+    <section class="container">
+      <h2 class="section-title">지키는 것들</h2>
+      <p class="section-lead">TikiTaka 가 양보하지 않는 네 가지.</p>
+      <div class="principles">
+        <div class="principle">
+          <span class="principle-check">✓</span>
+          <div class="principle-text"><strong>로컬 우선.</strong> <span>단축어는 본인 기기에만 저장됩니다. 클라우드 동기화는 켤 때만 켜집니다.</span></div>
+        </div>
+        <div class="principle">
+          <span class="principle-check">✓</span>
+          <div class="principle-text"><strong>텔레메트리 없음.</strong> <span>분석도, 추적도, 본사로 보내는 신호도 없습니다.</span></div>
+        </div>
+        <div class="principle">
+          <span class="principle-check">✓</span>
+          <div class="principle-text"><strong>키보드 우선.</strong> <span>단축어, 클립보드 히스토리, 설정까지 마우스 없이 조작합니다.</span></div>
+        </div>
+        <div class="principle">
+          <span class="principle-check">✓</span>
+          <div class="principle-text"><strong>한·중·일 입력 지원.</strong> <span>한글·일본어·중국어를 조합하고 있는 도중에도 트리거가 그대로 동작합니다.</span></div>
+        </div>
+      </div>
+    </section>
+
+    
+<!-- ── Demo video ────────────────────────────────────── -->
+    <section class="container">
+      <h2 class="section-title">영상으로 보기</h2>
+      <p class="section-lead">짧은 화면 녹화 — 설치, 텍스트 확장, 이미지 확장, 사용자 변수.</p>
+      <div class="demo-video">
+        <video
+          controls
+          preload="none"
+          playsinline
+          poster="assets/demo-poster.jpg"
+          src="assets/demo.mp4">
+          브라우저가 video 태그를 지원하지 않습니다.
+          <a href="assets/demo.mp4">데모 영상 다운로드</a>.
+        </video>
+      </div>
+    </section>
+
+    
+<!-- ── Screenshots ───────────────────────────────────── -->
+    <section class="alt-bg">
+      <div class="container">
+      <h2 class="section-title">실제 화면</h2>
+      <p class="section-lead">단축어, 클립보드 히스토리, 사용자 변수, 설정 — 모두 한 화면 안에서 끝납니다.</p>
+
+      <div class="screenshot-block">
+        <h3 class="screenshot-heading">단축어</h3>
+        <p class="screenshot-caption">그룹으로 분류하고, 행 안에서 바로 수정합니다.</p>
+        <div class="screenshot-frame">
+          <img src="screenshots/ko_light_snippets_v2.12.33.png" alt="TikiTaka 단축어 편집기 — 텍스트 치환 단축키를 그룹으로 관리" loading="lazy">
+        </div>
+      </div>
+
+      <div class="screenshot-block">
+        <h3 class="screenshot-heading">검색</h3>
+        <p class="screenshot-caption">키워드, 대체어, 한글 초성으로 단축어를 빠르게 찾습니다.</p>
+        <div class="screenshot-frame">
+          <img src="screenshots/ko_light_search_v2.12.33.png" alt="TikiTaka 퍼지 검색 — 키워드·초성으로 단축어 검색" loading="lazy">
+        </div>
+      </div>
+
+      <div class="screenshot-block">
+        <h3 class="screenshot-heading">클립보드 히스토리</h3>
+        <p class="screenshot-caption">최근 복사한 텍스트와 이미지를 단축키 한 번으로 다시 꺼냅니다.</p>
+        <div class="screenshot-frame">
+          <img src="screenshots/ko_light_clipboardhistory_v2.12.33.png" alt="TikiTaka 클립보드 히스토리 — 복사한 텍스트와 이미지를 단축키로 불러오기" loading="lazy">
+        </div>
+      </div>
+
+      <div class="screenshot-block">
+        <h3 class="screenshot-heading">사용자 변수</h3>
+        <p class="screenshot-caption">날짜·시간 포맷까지 지원하는 재사용 값.</p>
+        <div class="screenshot-frame">
+          <img src="screenshots/ko_light_customvariables_v2.12.33.png" alt="TikiTaka 사용자 변수 — ${email}, ${date} 같은 재사용 토큰으로 단축어 치환" loading="lazy">
+        </div>
+      </div>
+
+      <div class="screenshot-block">
+        <h3 class="screenshot-heading">설정</h3>
+        <p class="screenshot-caption">트리거, 테마, 자동 시작까지 한 화면에서.</p>
+        <div class="screenshot-frame">
+          <img src="screenshots/ko_light_settings_v2.12.33.png" alt="TikiTaka 설정 — 트리거 키, 테마, 클립보드 히스토리 설정" loading="lazy">
+        </div>
+      </div>
+      </div>
+    </section>
+
+<!-- ── Cloud sync ────────────────────────────────────── -->
+    <section class="alt-bg">
+      <div class="container">
+        <h2 class="section-title">(선택) 클라우드 동기화</h2>
+        <p class="section-lead">
+          여러 기기에서 단축어를 맞춰 쓰고 싶을 때, TikiTaka 는 자체 서버를 두지
+          않습니다. 이미 쓰고 있는 Google Drive 나 WebDAV 에 바로 저장하고 바로
+          불러옵니다. 기본은 꺼져 있고, 필요할 때만 켜서 쓰면 됩니다.
+        </p>
+        <div class="sync-providers">
+          <div class="sync-provider">
+            <div class="sync-provider-logo">☁</div>
+            <h3>Google Drive</h3>
+            <p>
+              앱 전용 숨김 폴더에만 저장됩니다. TikiTaka 는
+              <code>drive.appdata</code> 권한만 요청하기 때문에, 본인 Drive 의
+              다른 파일은 들여다볼 수도, 손댈 수도 없습니다.
+            </p>
+          </div>
+          <div class="sync-provider">
+            <div class="sync-provider-logo">⛁</div>
+            <h3>WebDAV</h3>
+            <p>
+              본인이 직접 운영하는 서버에 붙입니다 — Nextcloud, Synology NAS,
+              ownCloud, 표준 WebDAV 라면 어디든 됩니다. 데이터가 제3자 서버를
+              거치지 않고 본인 서버로 바로 갑니다.
+            </p>
+          </div>
+        </div>
+        <p class="sync-note">
+          충돌도 안전하게: 두 기기에서 같은 데이터를 동시에 바꾸면, 어느 쪽을 살릴지
+          묻는 다이얼로그가 뜨고, 덮어쓰기 전에 이전 원격 버전을 자동으로 백업해 둡니다.
+        </p>
+      </div>
+    </section>
+
+    
+<!-- ── What you get ──────────────────────────────────── -->
+    <section class="container">
+      <h2 class="section-title">구매 안내</h2>
+      <p class="section-lead">
+        단순한 다운로드형 데스크톱 앱입니다. 구독도, 계정도, 추적도 없습니다.
+      </p>
+      <div class="product-details">
+        <div class="product-detail">
+          <div class="product-detail-label">제품</div>
+          <div class="product-detail-value">Windows · macOS 용 다운로드형 데스크톱 애플리케이션</div>
+        </div>
+        <div class="product-detail">
+          <div class="product-detail-label">전달 방식</div>
+          <div class="product-detail-value">결제 즉시 이메일로 라이센스 키 발송 → 앱 내에서 활성화</div>
+        </div>
+        <div class="product-detail">
+          <div class="product-detail-label">라이센스</div>
+          <div class="product-detail-value">독점 (proprietary), 개인 상용 라이센스. 활성 기기 1대 — 앱 내에서 비활성화하면 다른 기기로 이동 가능.</div>
+        </div>
+        <div class="product-detail">
+          <div class="product-detail-label">구매 방식</div>
+          <div class="product-detail-value">1회 결제. 구독 아님. 평생 업데이트 포함.</div>
+        </div>
+        <div class="product-detail">
+          <div class="product-detail-label">대상 사용자</div>
+          <div class="product-detail-value">개인 · 전문가 — 개발자, 고객 지원, 작가 / 편집자, 다국어 사용자.</div>
+        </div>
+        <div class="product-detail">
+          <div class="product-detail-label">환불</div>
+          <div class="product-detail-value">
+            14일 이내, 사유 불문 전액 환불 —
+            <a href="terms.html#refund-policy">환불 정책 보기</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+<!-- ── Pricing ───────────────────────────────────────── -->
+    <section class="alt-bg">
+      <div class="container">
+        <h2 class="section-title">가격</h2>
+        <p class="section-lead">무료로 시작하세요. 한 번 구매하면 평생 사용합니다.</p>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3 class="pricing-tier">Free</h3>
+            <div class="pricing-amount">$0</div>
+            <ul class="pricing-features">
+              <li>그룹 1개, 단축어 최대 10개</li>
+              <li>클립보드 히스토리</li>
+              <li>사용자 변수</li>
+              <li>로컬 우선, 수집 / 추적 없음</li>
+              <li>평생 업데이트</li>
+            </ul>
+          </div>
+          <div class="pricing-card pricing-card-highlight">
+            <h3 class="pricing-tier">Pro</h3>
+            <div class="pricing-amount"><span class="pricing-once">1회 결제</span></div>
+            <ul class="pricing-features">
+              <li><strong>무료 플랜의 모든 기능 포함</strong></li>
+              <li>그룹 · 단축어 무제한</li>
+              <li>클라우드 동기화 (Google Drive · WebDAV)</li>
+              <li>활성 기기 1대 — 비활성화하면 다른 기기로 이동 가능</li>
+              <li>14일 환불 보장 (사유 불문)</li>
+            </ul>
+            <p class="pricing-note">
+              설치 후 앱 내에서 업그레이드 — 설정 → 라이센스 → Pro 구매.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>© 2026 TikiTaka · <a href="mailto:2601948tv@gmail.com">2601948tv@gmail.com</a></div>
+    <div class="footer-links">
+      <a href="#pricing">Pricing</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="terms.html#refund-policy">Refund</a>
+      <a href="https://github.com/soon83/tikitaka">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/lang.js"></script>
+<script>
+(function () {
+  var API = 'https://api.github.com/repos/soon83/tikitaka/releases/latest';
+  var fallback = 'https://github.com/soon83/tikitaka/releases/latest';
+
+  fetch(API)
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var assets = data.assets || [];
+      var dmg = '', exe = '';
+      for (var i = 0; i < assets.length; i++) {
+        var name = assets[i].name || '';
+        if (name.endsWith('.dmg')) dmg = assets[i].browser_download_url;
+        if (name.endsWith('.exe')) exe = assets[i].browser_download_url;
+      }
+
+      // Hero 버튼 (고정 ID)
+      var macEn = document.getElementById('dl-mac-en');
+      var macKo = document.getElementById('dl-mac-ko');
+      var winEn = document.getElementById('dl-win-en');
+      var winKo = document.getElementById('dl-win-ko');
+      if (macEn) macEn.href = dmg || fallback;
+      if (macKo) macKo.href = dmg || fallback;
+      if (winEn) winEn.href = exe || fallback;
+      if (winKo) winKo.href = exe || fallback;
+
+    })
+    .catch(function () {
+      var all = document.querySelectorAll('#dl-mac-en,#dl-mac-ko,#dl-win-en,#dl-win-ko');
+      for (var k = 0; k < all.length; k++) all[k].href = fallback;
+    });
+})();
+</script>
+</body>
+</html>

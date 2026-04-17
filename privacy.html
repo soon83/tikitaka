@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f59e0b">
+  <title>Privacy Policy — TikiTaka</title>
+  <meta name="description" content="TikiTaka privacy policy. We collect almost nothing. All snippets stay on your device.">
+  <link rel="canonical" href="https://soon83.github.io/tikitaka/privacy.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/style.css">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TikiTaka">
+  <meta property="og:title" content="Privacy Policy — TikiTaka">
+  <meta property="og:description" content="TikiTaka privacy policy. We collect almost nothing. All snippets stay on your device.">
+  <meta property="og:image" content="https://soon83.github.io/tikitaka/assets/demo-poster.jpg">
+  <meta property="og:url" content="https://soon83.github.io/tikitaka/privacy.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy Policy — TikiTaka">
+  <meta name="twitter:description" content="TikiTaka privacy policy. We collect almost nothing.">
+  <meta name="twitter:image" content="https://soon83.github.io/tikitaka/assets/demo-poster.jpg">
+</head>
+<body data-lang="en">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/logo-256.png" alt="TikiTaka">
+      <span>TikiTaka</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="terms.html">Terms</a>
+      <a href="terms.html#refund-policy">Refund</a>
+      <a href="https://github.com/soon83/tikitaka">GitHub</a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-set-lang="ko" aria-pressed="false">한국어</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="container legal" id="top">
+
+  <div lang="en">
+
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated: 2026-04-13</p>
+
+  <p>
+    TikiTaka is built around a single idea: your snippets, keystrokes, and shortcuts
+    belong on your device. This policy explains what little we touch and why.
+  </p>
+
+  <h2>Data we collect</h2>
+
+  <h3>License verification</h3>
+  <p>
+    When you activate a premium license, TikiTaka sends a hashed machine identifier
+    (SHA-256 fingerprint) and your license key to the LemonSqueezy API for validation.
+    No personally identifiable information is included in this request.
+  </p>
+
+  <h3>Update checks</h3>
+  <p>
+    TikiTaka periodically checks the GitHub Releases API to determine if a newer
+    version is available. Only the current app version is sent; no personal data is transmitted.
+  </p>
+
+  <h3>Payment information</h3>
+  <p>
+    All payments are processed entirely by
+    <a href="https://www.lemonsqueezy.com">LemonSqueezy</a>.
+    TikiTaka never collects, stores, or has access to your credit card, billing address,
+    or other payment details.
+  </p>
+
+  <h3>Cloud sync (optional)</h3>
+  <p>
+    TikiTaka offers an opt-in cloud sync feature. When enabled, an encrypted ZIP
+    archive of your snippets, groups, and images is uploaded to the storage provider
+    you choose:
+  </p>
+  <ul>
+    <li>
+      <strong>Google Drive</strong> — saved into the app-specific hidden folder
+      (<code>drive.appdata</code> scope). TikiTaka cannot read, modify, or delete any
+      other files in your Drive.
+    </li>
+    <li>
+      <strong>WebDAV</strong> — saved directly to the WebDAV server you provide
+      (Nextcloud, Synology, ownCloud, etc.). TikiTaka does not relay this data through
+      any TikiTaka-controlled server.
+    </li>
+  </ul>
+  <p>
+    Authentication tokens (OAuth refresh tokens, WebDAV credentials) are stored
+    encrypted in your operating system keychain (macOS Keychain / Windows DPAPI) and
+    never written to plain-text configuration files.
+  </p>
+
+  <h2>Data we do NOT collect</h2>
+  <ul>
+    <li><strong>No analytics or telemetry</strong> — we do not track usage patterns, feature usage, or session data.</li>
+    <li><strong>No keystroke logging</strong> — keyboard input is processed locally in real time for keyword matching and is never recorded, stored, or transmitted.</li>
+    <li><strong>No snippet content collection</strong> — TikiTaka does not operate any server that sees your snippet data. Even with cloud sync enabled, your data goes directly to your chosen provider.</li>
+  </ul>
+
+  <h2>Data storage</h2>
+  <p>
+    All user data (snippets, settings, images) is stored locally in the application
+    data directory on your device. If you opt into cloud sync, the same data is
+    additionally synced to your chosen provider only.
+  </p>
+
+  <h2>Third-party services</h2>
+  <table>
+    <thead>
+      <tr><th>Service</th><th>Purpose</th><th>Their privacy policy</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://www.lemonsqueezy.com">LemonSqueezy</a></td>
+        <td>Payment processing &amp; license management</td>
+        <td><a href="https://www.lemonsqueezy.com/privacy">lemonsqueezy.com/privacy</a></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com">GitHub</a></td>
+        <td>Application distribution &amp; update checks</td>
+        <td><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">github.com</a></td>
+      </tr>
+      <tr>
+        <td><a href="https://www.google.com">Google</a></td>
+        <td>Optional cloud sync via Google Drive</td>
+        <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Google API services disclosure</h2>
+  <p>
+    TikiTaka's use of Google API services adheres to the
+    <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>,
+    including the Limited Use requirements.
+  </p>
+  <p>
+    Specifically, TikiTaka only requests the
+    <code>https://www.googleapis.com/auth/drive.appdata</code> scope, which restricts
+    access to a hidden app-specific folder. TikiTaka cannot read, modify, or delete
+    any other files in your Google Drive. Data accessed through Google APIs is used
+    solely to provide the cloud sync feature you have enabled. It is not shared with
+    third parties, used for advertising, or used to train AI/ML models.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    For privacy-related questions, contact
+    <a href="mailto:2601948tv@gmail.com">2601948tv@gmail.com</a>.
+  </p>
+
+  </div>
+
+  <!-- ── Korean ───────────────────────────────────────────── -->
+  <div lang="ko">
+
+    <h1>개인정보처리방침</h1>
+    <p class="meta">최종 수정: 2026-04-13</p>
+
+    <p>
+      TikiTaka 는 한 가지 원칙 위에 만들어졌습니다 — 단축어, 키 입력, 데이터는
+      사용자의 기기에 머물러야 한다. 본 방침은 TikiTaka 가 다루는 최소한의 데이터가
+      무엇이며 그 이유가 무엇인지 설명합니다.
+    </p>
+
+    <h2>수집하는 정보</h2>
+
+    <h3>라이선스 인증</h3>
+    <p>
+      프리미엄 라이선스 활성화 시, 기기 식별을 위한 해시 값(SHA-256 핑거프린트)과
+      라이선스 키를 LemonSqueezy API 로 전송합니다. 개인 식별 정보는 포함되지 않습니다.
+    </p>
+
+    <h3>업데이트 확인</h3>
+    <p>
+      TikiTaka 는 GitHub Releases API 를 주기적으로 호출하여 새 버전 여부를 확인합니다.
+      현재 앱 버전만 전송되며, 개인 정보는 전송되지 않습니다.
+    </p>
+
+    <h3>결제 정보</h3>
+    <p>
+      모든 결제는 <a href="https://www.lemonsqueezy.com">LemonSqueezy</a> 를 통해 처리됩니다.
+      TikiTaka 는 신용카드, 청구 주소 등 결제 정보를 수집·저장·접근하지 않습니다.
+    </p>
+
+    <h3>클라우드 동기화 (선택)</h3>
+    <p>
+      TikiTaka 는 선택적인 클라우드 동기화 기능을 제공합니다. 활성화하면 단축어, 그룹,
+      이미지가 담긴 ZIP 아카이브를 사용자가 선택한 저장소에 업로드합니다:
+    </p>
+    <ul>
+      <li>
+        <strong>Google Drive</strong> — <code>drive.appdata</code> scope 의
+        앱 전용 숨김 폴더에 저장됩니다. TikiTaka 는 사용자의 다른 Drive 파일에
+        접근할 수 없습니다.
+      </li>
+      <li>
+        <strong>WebDAV</strong> — 사용자가 직접 지정한 WebDAV 서버
+        (Nextcloud, Synology, ownCloud 등)에 직접 저장됩니다.
+        TikiTaka 가 운영하는 중간 서버는 존재하지 않습니다.
+      </li>
+    </ul>
+    <p>
+      OAuth refresh token 과 WebDAV 자격증명은 운영체제 키체인
+      (macOS Keychain / Windows DPAPI)으로 암호화되어 저장되며, 평문 설정 파일에는
+      절대 기록되지 않습니다.
+    </p>
+
+    <h2>수집하지 않는 정보</h2>
+    <ul>
+      <li><strong>분석/텔레메트리 없음</strong> — 사용 패턴, 기능 사용 빈도, 세션 데이터를 추적하지 않습니다.</li>
+      <li><strong>키 입력 기록 없음</strong> — 키보드 입력은 키워드 매칭을 위해 로컬에서 실시간 처리되며, 기록·저장·전송되지 않습니다.</li>
+      <li><strong>단축어 내용 수집 없음</strong> — TikiTaka 는 단축어 데이터를 받는 자체 서버를 운영하지 않습니다. 클라우드 동기화를 켜더라도 데이터는 사용자가 선택한 저장소로 직접 전송됩니다.</li>
+    </ul>
+
+    <h2>데이터 저장</h2>
+    <p>
+      모든 사용자 데이터(단축어, 설정, 이미지)는 사용자 기기의 앱 데이터 디렉토리에
+      로컬 저장됩니다. 클라우드 동기화를 활성화한 경우, 같은 데이터가 사용자가 선택한
+      저장소에만 추가로 동기화됩니다.
+    </p>
+
+    <h2>제3자 서비스</h2>
+    <table>
+      <thead>
+        <tr><th>서비스</th><th>용도</th><th>개인정보처리방침</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.lemonsqueezy.com">LemonSqueezy</a></td>
+          <td>결제 및 라이선스 관리</td>
+          <td><a href="https://www.lemonsqueezy.com/privacy">lemonsqueezy.com/privacy</a></td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com">GitHub</a></td>
+          <td>앱 배포 및 업데이트 확인</td>
+          <td><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">github.com</a></td>
+        </tr>
+        <tr>
+          <td><a href="https://www.google.com">Google</a></td>
+          <td>Google Drive 를 통한 선택적 클라우드 동기화</td>
+          <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Google API 서비스 공개 사항</h2>
+    <p>
+      TikiTaka 의 Google API 사용은
+      <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>
+      (Limited Use 요건 포함)를 준수합니다.
+    </p>
+    <p>
+      구체적으로 TikiTaka 는 <code>https://www.googleapis.com/auth/drive.appdata</code>
+      scope 만 요청하며, 이는 앱 전용 숨김 폴더로 접근을 제한합니다. TikiTaka 는 사용자의
+      다른 Google Drive 파일에 대해 읽기·수정·삭제 권한이 없습니다. Google API 를 통해
+      접근하는 데이터는 사용자가 활성화한 클라우드 동기화 기능 제공 목적으로만 사용되며,
+      제3자와 공유되거나 광고에 사용되거나 AI/ML 모델 학습에 사용되지 않습니다.
+    </p>
+
+    <h2>문의</h2>
+    <p>
+      개인정보 관련 문의:
+      <a href="mailto:2601948tv@gmail.com">2601948tv@gmail.com</a>
+    </p>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>© 2026 TikiTaka · <a href="mailto:2601948tv@gmail.com">2601948tv@gmail.com</a></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="terms.html#refund-policy">Refund</a>
+      <a href="https://github.com/soon83/tikitaka">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/lang.js"></script>
+</body>
+</html>
