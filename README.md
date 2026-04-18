@@ -4,7 +4,9 @@
 
 A text expander and clipboard history manager for people who type the same things every day — built from day 1 for real multilingual workflows (Korean, English, Chinese, Japanese) without giving up on keyboard-first ergonomics.
 
-https://github.com/user-attachments/assets/0210c244-1cef-41cd-b33d-c88fad9abffb
+<p align="center">
+  <img src="tikitaka-demo.gif" alt="TikiTaka Demo" width="80%" />
+</p>
 
 <p align="center">
   <img src="screenshots/en_dark_snippets_v2.12.33.png" alt="TikiTaka - English (Dark)" width="48%" />
