@@ -535,8 +535,7 @@
     <section class="container">
       <h2 class="section-title">매일 반복되는 입력은 단축키 한 번으로</h2>
       <p class="section-lead">
-        자주 쓰는 답변, 주소, 코드 조각, 서명, 자동완성 매크로 — 어떤 앱에서든 어떤 언어로든
-        단축키 한 번으로 끝냅니다. 단축어 치환, 이미지 치환, 사용자 변수 모두 같은 방식으로 동작합니다.
+        자주 쓰는 답변, 주소, 코드 조각, 서명 — 어떤 앱에서든 단축키 한 번으로 끝냅니다.
       </p>
       <div style="margin:0 auto 2.5rem;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.12)">
         <img src="tikitaka-demo.gif" alt="TikiTaka Demo" style="width:100%;display:block" />
@@ -544,46 +543,43 @@
       <div class="features">
         <div class="feature-card">
           <div class="feature-icon">⚡</div>
-          <h3 class="feature-title">키워드 한 번에 펼쳐지는 단축어</h3>
+          <h3 class="feature-title">짧은 키워드, 긴 문장으로 대체</h3>
           <p class="feature-desc">
-            등록해 둔 키워드 끝에 커서를 두고 트리거 (기본값 <code>Ctrl + \</code>) 를
-            누르면, 그 자리에서 바로 대체어로 치환됩니다. 작업 중이던 앱을
-            벗어날 필요 없이 어디서든 그대로 동작합니다.
+            <code>addr</code>을 치고 트리거 한 번이면 전체 주소가 들어갑니다.
+            작업 중이던 앱을 벗어날 필요 없이, 어디서든 그 자리에서 바로 치환됩니다.
           </p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">字</div>
-          <h3 class="feature-title">한·중·일 조합 중에도 그대로 동작</h3>
+          <div class="feature-icon">가</div>
+          <h3 class="feature-title">한글 조합 중에도 바로 동작</h3>
           <p class="feature-desc">
-            한글 받침을 조합하고 있는 도중에 트리거를 눌러도 그 자리에서 대체어로
-            치환됩니다. 일본어, 중국어 입력기도 마찬가지입니다. 하나의 단축어
-            안에 한국어, 영어, 중국어, 일본어 키워드를 자유롭게 섞어 쓸 수 있습니다.
+            한글 받침을 조합하고 있는 도중에 트리거를 눌러도 그대로 치환됩니다.
+            한글과 영문 키워드를 하나의 단축어에 섞어 쓸 수도 있습니다.
+            다른 텍스트 확장기에서 안 되던 한글 입력, TikiTaka는 처음부터 됩니다.
           </p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">📋</div>
-          <h3 class="feature-title">클립보드 히스토리 · 이미지 치환</h3>
+          <h3 class="feature-title">클립보드 히스토리</h3>
           <p class="feature-desc">
-            한참 전에 복사해 둔 내용도 다시 꺼내 쓸 수 있습니다. 원본 페이지로
-            돌아가 다시 복사할 필요 없이, 팝업 (권장: <code>Ctrl + Alt + \</code>) 을
-            열고 예전에 복사했던 텍스트나 이미지를 그대로 고르면 됩니다. 이미지도
-            단축어로 등록해 두면 텍스트 치환과 똑같이 트리거 한 번으로 붙여넣어집니다.
+            보고서를 쓰다 데이터를 복사해 뒀는데, 급한 메일 때문에 다른 걸 복사했더니
+            아까 복사한 게 날아갔던 경험 — 이제 다시 찾으러 갈 필요 없습니다.
+            <code>Ctrl + Alt + \</code>로 최근 복사 목록을 열고 골라서 바로 붙여넣으세요.
           </p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">{ }</div>
           <h3 class="feature-title">사용자 변수</h3>
           <p class="feature-desc">
-            <code>${email}</code>, <code>${signature}</code>,
-            <code>${date:yyyy-MM-dd}</code> 같은 재사용 값을 한 번만 정의하면,
-            그 값을 쓰는 모든 단축어가 한꺼번에 같이 바뀝니다. 날짜·시간 포맷
-            토큰도 폭넓게 지원합니다.
+            <code>${email}</code>, <code>${phone}</code> 같은 값을 한 번만 등록해 두면,
+            여러 단축어에서 공유합니다. 이메일이 바뀌면 변수 하나만 수정 — 그 변수를 쓰는
+            모든 단축어가 한꺼번에 업데이트됩니다.
           </p>
         </div>
       </div>
     </section>
 
-    
+
 <!-- ── How it works ──────────────────────────────────── -->
     <section class="container">
       <h2 class="section-title">사용 방법</h2>
@@ -593,108 +589,91 @@
           <div class="step-number">1</div>
           <h3 class="step-title">단축어 등록</h3>
           <p class="step-desc">
-            자주 쓰는 문장·코드·주소·서명을 추가하고
-            <code>addr</code>, <code>sig</code> 같은 짧은 키워드를 붙입니다.
+            자주 쓰는 문장이나 주소를 추가하고 짧은 키워드를 붙입니다.
+            영문(<code>addr</code>), 한글 초성(<code>ㄱㅁ</code>),
+            한글 완성형(<code>국민</code>) 모두 키워드로 쓸 수 있습니다.
           </p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
           <h3 class="step-title">키워드 입력</h3>
           <p class="step-desc">
-            어디서든 — 메일, 채팅, 코드 편집기, 어디든 — 등록해 둔 키워드를
-            그대로 칩니다. 다른 창으로 옮길 필요 없습니다.
+            아무 앱에서나 등록해 둔 키워드를 치고, 커서를 키워드 끝에 둡니다.
+            중간에 오타를 내도 처음부터 다시 칠 필요 없이, 틀린 부분만 고치면 됩니다.
           </p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
           <h3 class="step-title">트리거 한 번</h3>
           <p class="step-desc">
-            설정한 트리거 (기본값 <code>Ctrl + \</code>) 를 한 번 누르면,
-            키워드 자리에 단축어 전체가 그대로 들어갑니다.
+            <code>Ctrl + \</code>를 누르면 키워드가 등록된 전체 문장으로 바뀝니다.
+            한글 받침을 조합하고 있는 도중에 눌러도 그대로 동작합니다.
           </p>
         </div>
       </div>
     </section>
 
-    
+
 <!-- ── Use cases ─────────────────────────────────────── -->
     <section class="alt-bg">
       <div class="container">
       <h2 class="section-title">매일 키보드를 두드리는 모두를 위해</h2>
-      <p class="section-lead">같은 말을 매일 다시 치고 있다면, TikiTaka 가 그 시간을 돌려드립니다.</p>
+      <p class="section-lead">같은 말을 매일 다시 치고 있다면, TikiTaka가 그 시간을 돌려드립니다.</p>
       <div class="use-cases">
-        <div class="use-case">
-          <div class="use-case-icon">💻</div>
-          <div class="use-case-text">
-            <strong>개발자</strong>
-            <span>코드 스니펫, git 명령어, 로그 쿼리, 에러 메시지 — 외울 필요 없이 키워드 한 번.</span>
-          </div>
-        </div>
         <div class="use-case">
           <div class="use-case-icon">📨</div>
           <div class="use-case-text">
             <strong>고객 응대</strong>
-            <span>자주 쓰는 답변, 안내 링크, FAQ 문구, 상위 이관 템플릿.</span>
+            <span>자주 쓰는 답변, 안내 링크, FAQ 문구, 이관 템플릿 — 키워드만 치면 끝.</span>
+          </div>
+        </div>
+        <div class="use-case">
+          <div class="use-case-icon">💼</div>
+          <div class="use-case-text">
+            <strong>사무직</strong>
+            <span>계좌번호, 주소, 이메일 서명, 보고서 양식 — 매번 다시 입력할 필요 없습니다.</span>
+          </div>
+        </div>
+        <div class="use-case">
+          <div class="use-case-icon">💻</div>
+          <div class="use-case-text">
+            <strong>개발자</strong>
+            <span>코드 스니펫, git 명령어, 로그 쿼리 — 외울 필요 없이 키워드 한 번.</span>
           </div>
         </div>
         <div class="use-case">
           <div class="use-case-icon">✍️</div>
           <div class="use-case-text">
             <strong>작가 / 편집자</strong>
-            <span>고정 문장, 서명, 정형 날짜, 인용 — 매번 똑같이 다시 칠 필요 없습니다.</span>
-          </div>
-        </div>
-        <div class="use-case">
-          <div class="use-case-icon">🌐</div>
-          <div class="use-case-text">
-            <strong>다국어 사용자</strong>
-            <span>한국어·일본어·중국어·영어 사이를 오가도 입력 리듬이 그대로 유지됩니다.</span>
+            <span>고정 문장, 서명, 정형 날짜 — 매번 같은 걸 다시 쓰는 시간을 아낍니다.</span>
           </div>
         </div>
       </div>
       </div>
     </section>
 
-    
+
 <!-- ── Principles ────────────────────────────────────── -->
     <section class="container">
-      <h2 class="section-title">지키는 것들</h2>
-      <p class="section-lead">TikiTaka 가 양보하지 않는 네 가지.</p>
+      <h2 class="section-title">보안을 챙겼습니다</h2>
+      <p class="section-lead">안심하고 쓸 수 있도록.</p>
       <div class="principles">
         <div class="principle">
           <span class="principle-check">✓</span>
-          <div class="principle-text"><strong>로컬 우선.</strong> <span>단축어는 본인 기기에만 저장됩니다. 클라우드 동기화는 켤 때만 켜집니다.</span></div>
+          <div class="principle-text"><strong>내 PC에만 저장.</strong> <span>단축어 데이터는 내 컴퓨터에만 있습니다. 외부 서버로 전송되지 않습니다.</span></div>
         </div>
         <div class="principle">
           <span class="principle-check">✓</span>
-          <div class="principle-text"><strong>텔레메트리 없음.</strong> <span>분석도, 추적도, 본사로 보내는 신호도 없습니다.</span></div>
+          <div class="principle-text"><strong>사용 기록 수집 없음.</strong> <span>어떤 기능을 썼는지, 뭘 입력했는지 — 일체 수집하지 않습니다.</span></div>
         </div>
         <div class="principle">
           <span class="principle-check">✓</span>
-          <div class="principle-text"><strong>키보드 우선.</strong> <span>단축어, 클립보드 히스토리, 설정까지 마우스 없이 조작합니다.</span></div>
+          <div class="principle-text"><strong>한글 조합 완벽 지원.</strong> <span>받침을 치는 도중에도 트리거가 바로 동작합니다. 다른 확장기에서 안 되던 것.</span></div>
         </div>
         <div class="principle">
           <span class="principle-check">✓</span>
-          <div class="principle-text"><strong>한·중·일 입력 지원.</strong> <span>한글·일본어·중국어를 조합하고 있는 도중에도 트리거가 그대로 동작합니다.</span></div>
+          <div class="principle-text"><strong>클라우드는 선택.</strong> <span>동기화를 원할 때만 Google Drive나 WebDAV를 연결하면 됩니다.</span></div>
         </div>
-      </div>
-    </section>
-
-    
-<!-- ── Demo video ────────────────────────────────────── -->
-    <section class="container">
-      <h2 class="section-title">영상으로 보기</h2>
-      <p class="section-lead">짧은 화면 녹화 — 설치, 텍스트 확장, 이미지 확장, 사용자 변수.</p>
-      <div class="demo-video">
-        <video
-          controls
-          preload="none"
-          playsinline
-          poster="assets/demo-poster.jpg"
-          src="assets/demo.mp4">
-          브라우저가 video 태그를 지원하지 않습니다.
-          <a href="assets/demo.mp4">데모 영상 다운로드</a>.
-        </video>
       </div>
     </section>
 
