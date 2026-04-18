@@ -59,6 +59,14 @@ html {
   scroll-behavior: smooth;
 }
 
+/*
+ * 앵커 점프시 sticky 헤더가 타겟을 가리지 않도록 상단 여백을 준다.
+ * 헤더 높이(≈60px) + 살짝의 breathing room.
+ */
+[id], [data-anchor] {
+  scroll-margin-top: 76px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
@@ -92,6 +100,8 @@ code {
 /* ── Header / Nav ───────────────────────────────────────────────── */
 
 .site-header {
+  /* -webkit-sticky 는 구형 Safari 호환. 모바일(≤680px)에선 하단에서 fixed 로 override. */
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   /* 드로어(z-index 20) / 백드롭(15) 위에 있어야 햄버거 X 버튼이 항상 조작 가능 */
@@ -149,6 +159,18 @@ code {
   color: var(--color-accent);
 }
 
+/* 하위 항목: 페이지 내 앵커 (Pricing / Refund) — 상위 페이지에 속한 섹션임을 색으로 구분 */
+.nav-links .nav-sub {
+  color: var(--color-text-dim);
+  font-weight: 400;
+}
+
+/* 현재 페이지 표시 — aria-current="page" 로 마크된 링크 */
+.nav-links a[aria-current="page"] {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
 /* ── Header right cluster (lang toggle + hamburger) ─────────── */
 
 .header-right {
@@ -162,6 +184,8 @@ code {
 .nav-toggle {
   display: none;
   position: relative;
+  /* 드로어(z-index 20) 위에 떠서 X 애니메이션 / 클릭 가능하도록 */
+  z-index: 25;
   appearance: none;
   background: transparent;
   border: 0;
@@ -821,8 +845,14 @@ section.alt-bg {
 
 /* ── Legal page (privacy / terms) ───────────────────────────────── */
 
+/*
+ * 주의: .container 와 같은 element 에 함께 붙으므로 padding shorthand 를
+ * 쓰면 .container 의 좌우 24px 가 0 으로 덮어써져 본문이 뷰포트 가장자리에
+ * 붙는다. vertical longhand 로 분리해 충돌을 피한다.
+ */
 .legal {
-  padding: var(--space-2xl) 0;
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
 }
 
 .legal h1 {
@@ -863,11 +893,34 @@ section.alt-bg {
 
 .legal li { margin-bottom: var(--space-sm); }
 
+/*
+ * 테이블 래퍼 — 좁은 화면에서 본문 overflow-x:hidden 때문에 표가 잘리지
+ * 않도록, 래퍼가 자체 수평 스크롤을 갖는다. 오른쪽 가장자리에 subtle
+ * gradient 로 "더 있다" 는 힌트.
+ */
+.legal .table-wrap {
+  margin: var(--space-md) 0 var(--space-xl);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-sm);
+}
+
 .legal table {
   width: 100%;
   border-collapse: collapse;
-  margin: var(--space-md) 0 var(--space-xl);
   font-size: 14px;
+  /* 모바일에서 칸이 너무 좁아져 가독성이 무너지지 않도록 최소폭 확보 */
+  min-width: 560px;
+}
+
+.legal .table-wrap table {
+  margin: 0;
+}
+
+/* 가운데 컬럼(용도)은 한글 문구가 들어가 줄바꿈이 잦아지므로 여유 폭 확보 */
+.legal table th:nth-child(2),
+.legal table td:nth-child(2) {
+  min-width: 200px;
 }
 
 .legal th, .legal td {
@@ -948,14 +1001,54 @@ section.alt-bg {
 
   /* ── Mobile nav drawer ─────────────────────────────────────── */
 
+  /*
+   * 모바일에선 sticky 대신 fixed 로 강제. sticky 는 ancestor 의 overflow /
+   * containing block / 페이지 레이아웃 영향을 받아 특정 페이지(privacy, terms
+   * 처럼 main 에 다른 클래스가 붙은 경우)에서 고정이 풀릴 수 있음. fixed 는
+   * 뷰포트 기준 절대 고정이라 예외 없이 동작.
+   *
+   * backdrop-filter 는 제거 — fixed 자식(드로어)의 containing block 을
+   * 만들어 드로어가 뷰포트 대신 헤더 박스 기준으로 위치되는 버그가 발생.
+   */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--color-bg);
+  }
+
+  /* fixed 헤더가 첫 콘텐츠를 가리지 않도록 body 에 상단 여백 확보. */
+  body {
+    padding-top: 60px;
+  }
+
+  /*
+   * 수평 스크롤 방지 — 드로어가 translateX(100%) 로 오프스크린에 있을 때
+   * 일부 브라우저가 그 변환을 스크롤 가능 영역에 포함시켜 페이지가 옆으로
+   * 밀리는 현상이 발생. 모바일에선 가로 스크롤이 필요 없으므로 차단.
+   */
+  html, body {
+    overflow-x: hidden;
+  }
+
   .nav-toggle { display: inline-flex; }
 
   .nav-links {
     position: fixed;
     top: 0;
     right: 0;
-    bottom: 0;
-    width: min(280px, 78vw);
+    /*
+     * 높이는 viewport 단위로 명시 — bottom:0 만 쓰면 조상(header) 의
+     * containing block 영향을 받아 뷰포트보다 짧게 렌더링되는 경우가 있음.
+     * 100dvh 는 모바일 브라우저의 동적 UI (주소창 표시/숨김) 변화를 따라감.
+     */
+    height: 100vh;
+    height: 100dvh;
+    width: 280px;
+    max-width: 78vw;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
@@ -968,6 +1061,7 @@ section.alt-bg {
     transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 20;
+    overflow-y: auto;
     overscroll-behavior: contain;
   }
 
@@ -985,6 +1079,12 @@ section.alt-bg {
 
   .nav-links a:last-child {
     border-bottom: 0;
+  }
+
+  /* 모바일 드로어에선 앵커 하위 항목을 들여써서 계층 구조가 한눈에 보이게 */
+  .nav-links .nav-sub {
+    padding-left: var(--space-xl);
+    font-size: 14px;
   }
 
   /* 드로어 열린 동안 body 스크롤 잠금 */
