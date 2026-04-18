@@ -9,13 +9,23 @@
  * 기본값은 영어. 사용자가 한 번 누르면 그 선택이 다른 페이지로도 전파.
  */
 (function () {
-  var STORAGE_KEY = 'lightkey-lang';
+  var STORAGE_KEY = 'tikitaka-lang';
+  var LEGACY_STORAGE_KEY = 'lightkey-lang';
   var DEFAULT = 'en';
   var ALLOWED = ['en', 'ko'];
 
   function getLang() {
     try {
       var v = localStorage.getItem(STORAGE_KEY);
+      if (!v) {
+        // LightKey → TikiTaka 리브랜딩: 이전 키에 저장된 선택 1회성 이관
+        var legacy = localStorage.getItem(LEGACY_STORAGE_KEY);
+        if (legacy && ALLOWED.indexOf(legacy) >= 0) {
+          localStorage.setItem(STORAGE_KEY, legacy);
+          try { localStorage.removeItem(LEGACY_STORAGE_KEY); } catch (_) {}
+          v = legacy;
+        }
+      }
       return ALLOWED.indexOf(v) >= 0 ? v : DEFAULT;
     } catch (_) {
       return DEFAULT;
