@@ -94,7 +94,8 @@ code {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  /* 드로어(z-index 20) / 백드롭(15) 위에 있어야 햄버거 X 버튼이 항상 조작 가능 */
+  z-index: 30;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
@@ -146,6 +147,71 @@ code {
 
 .nav-links a:hover {
   color: var(--color-accent);
+}
+
+/* ── Header right cluster (lang toggle + hamburger) ─────────── */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* ── Hamburger button (모바일에서만 보임) ──────────────────── */
+
+.nav-toggle {
+  display: none;
+  position: relative;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: var(--radius-md);
+  transition: background 0.15s ease;
+  font-family: inherit;
+}
+
+.nav-toggle:hover {
+  background: var(--color-bg-soft);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+/* 열린 상태에서 가운데 막대는 사라지고 위/아래가 X 로 회전 */
+body.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Nav drawer backdrop ────────────────────────────────────── */
+
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 15;
+}
+
+body.nav-open .nav-backdrop {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ── Language toggle ─────────────────────────────────────────── */
@@ -876,8 +942,51 @@ section.alt-bg {
   .sync-providers { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
   .product-details { grid-template-columns: 1fr; }
-  .nav-links { gap: var(--space-md); font-size: 13px; }
   .legal h1 { font-size: 28px; }
   .legal h2 { font-size: 22px; }
   section { padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); }
+
+  /* ── Mobile nav drawer ─────────────────────────────────────── */
+
+  .nav-toggle { display: inline-flex; }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(280px, 78vw);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    /* 상단은 sticky 헤더(약 60px) 높이만큼 비워 링크가 헤더 뒤로 들어가지 않도록 */
+    padding: 76px var(--space-lg) var(--space-lg);
+    font-size: 16px;
+    background: var(--color-bg);
+    border-left: 1px solid var(--color-border);
+    box-shadow: -10px 0 30px var(--color-shadow-strong);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 20;
+    overscroll-behavior: contain;
+  }
+
+  body.nav-open .nav-links {
+    transform: translateX(0);
+  }
+
+  .nav-links a {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--color-border-soft);
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: 0;
+  }
+
+  /* 드로어 열린 동안 body 스크롤 잠금 */
+  body.nav-open { overflow: hidden; }
 }
