@@ -746,13 +746,29 @@ section.alt-bg {
   letter-spacing: -0.02em;
   margin-bottom: var(--space-sm);
   line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.pricing-early-bird {
+  color: var(--color-accent);
+}
+
+.pricing-original {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  letter-spacing: -0.01em;
 }
 
 .pricing-once {
   font-size: 15px;
   font-weight: 500;
   color: var(--color-text-muted);
-  margin-left: var(--space-xs);
+  margin-bottom: var(--space-sm);
 }
 
 .pricing-features {
