@@ -756,6 +756,38 @@ section.alt-bg {
   color: var(--color-accent);
 }
 
+.pricing-original {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  letter-spacing: -0.01em;
+}
+
+/* Tumblbug 캠페인용 — 5장 카드 자동 배치 + 비강조 promoted 카드 */
+.pricing-grid-tumblbug {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  max-width: 100%;
+}
+
+.pricing-card-promoted {
+  border-color: var(--color-accent);
+  box-shadow: 0 12px 32px var(--color-shadow);
+}
+
+.pricing-badge {
+  display: inline-block;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  align-self: flex-start;
+  letter-spacing: 0.01em;
+}
+
 .pricing-once {
   font-size: 15px;
   font-weight: 500;

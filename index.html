@@ -57,13 +57,33 @@
         "@type": "Offer",
         "name": "Free",
         "price": "0",
-        "priceCurrency": "USD"
+        "priceCurrency": "KRW"
+      },
+      {
+        "@type": "Offer",
+        "name": "Early Bird",
+        "price": "12900",
+        "priceCurrency": "KRW",
+        "availability": "https://schema.org/LimitedAvailability"
+      },
+      {
+        "@type": "Offer",
+        "name": "Early Bird Duo",
+        "price": "22900",
+        "priceCurrency": "KRW",
+        "availability": "https://schema.org/LimitedAvailability"
       },
       {
         "@type": "Offer",
         "name": "Pro",
-        "price": "14.99",
-        "priceCurrency": "USD"
+        "price": "19900",
+        "priceCurrency": "KRW"
+      },
+      {
+        "@type": "Offer",
+        "name": "Duo Pack",
+        "price": "29900",
+        "priceCurrency": "KRW"
       }
     ],
     "author": {
@@ -479,12 +499,13 @@
 <!-- ── Pricing ───────────────────────────────────────── -->
     <section class="alt-bg" id="pricing" data-anchor="pricing">
       <div class="container">
-        <h2 class="section-title">Pricing</h2>
-        <p class="section-lead">Start free. Upgrade once, keep it forever.</p>
-        <div class="pricing-grid">
+        <h2 class="section-title">Tumblbug Rewards</h2>
+        <p class="section-lead">Launch-period tiers on Tumblbug. Pledge once, lifetime license.</p>
+        <div class="pricing-grid pricing-grid-tumblbug">
           <div class="pricing-card">
             <h3 class="pricing-tier">Free</h3>
-            <div class="pricing-amount">$0</div>
+            <div class="pricing-amount">₩0</div>
+            <div class="pricing-once">no purchase needed</div>
             <ul class="pricing-features">
               <li>1 group, up to 10 shortcuts</li>
               <li>Clipboard history</li>
@@ -493,24 +514,66 @@
               <li>Lifetime updates</li>
             </ul>
           </div>
-          <div class="pricing-card pricing-card-highlight">
-            <h3 class="pricing-tier">Pro</h3>
+          <div class="pricing-card pricing-card-promoted">
+            <span class="pricing-badge">Limited 20 · 35% off</span>
+            <h3 class="pricing-tier">Early Bird</h3>
             <div class="pricing-amount">
-              <span class="pricing-price">$14.99</span>
+              <span class="pricing-price">₩12,900</span>
+              <span class="pricing-original">₩19,900</span>
             </div>
-            <div class="pricing-once">one-time purchase</div>
+            <div class="pricing-once">1 license · launch only</div>
             <ul class="pricing-features">
               <li><strong>Everything in Free, plus:</strong></li>
               <li>Unlimited groups &amp; shortcuts</li>
               <li>Cloud sync — Google Drive or WebDAV</li>
-              <li>One active device at a time — deactivate to move the license to another machine</li>
+              <li>One active device — deactivate to move</li>
               <li>14-day refund, no questions asked</li>
             </ul>
-            <p class="pricing-note">
-              Upgrade from within the app after installing — Settings → License → Buy Pro.
-            </p>
+          </div>
+          <div class="pricing-card pricing-card-promoted">
+            <span class="pricing-badge">Limited 5 · 42% off</span>
+            <h3 class="pricing-tier">Early Bird Duo</h3>
+            <div class="pricing-amount">
+              <span class="pricing-price">₩22,900</span>
+              <span class="pricing-original">₩39,800</span>
+            </div>
+            <div class="pricing-once">2 licenses · launch only</div>
+            <ul class="pricing-features">
+              <li>2 Pro licenses (share or gift)</li>
+              <li>Each on one active device</li>
+              <li>Same Pro features as above</li>
+            </ul>
+          </div>
+          <div class="pricing-card">
+            <h3 class="pricing-tier">Pro</h3>
+            <div class="pricing-amount">
+              <span class="pricing-price">₩19,900</span>
+            </div>
+            <div class="pricing-once">1 license · standard</div>
+            <ul class="pricing-features">
+              <li>Unlimited groups &amp; shortcuts</li>
+              <li>Cloud sync — Google Drive or WebDAV</li>
+              <li>Available throughout the campaign</li>
+            </ul>
+          </div>
+          <div class="pricing-card">
+            <span class="pricing-badge">25% off</span>
+            <h3 class="pricing-tier">Duo Pack</h3>
+            <div class="pricing-amount">
+              <span class="pricing-price">₩29,900</span>
+              <span class="pricing-original">₩39,800</span>
+            </div>
+            <div class="pricing-once">2 licenses · standard</div>
+            <ul class="pricing-features">
+              <li>2 Pro licenses</li>
+              <li>Save 25% vs buying separately</li>
+              <li>Available throughout the campaign</li>
+            </ul>
           </div>
         </div>
+        <p class="pricing-note" style="text-align:center; margin-top: var(--space-xl);">
+          Upgrade from within the app after installing — Settings → License → Buy Pro.
+        </p>
       </div>
     </section>
 
@@ -816,12 +879,13 @@
 <!-- ── Pricing ───────────────────────────────────────── -->
     <section class="alt-bg" data-anchor="pricing">
       <div class="container">
-        <h2 class="section-title">가격</h2>
-        <p class="section-lead">무료로 시작하세요. 한 번 구매하면 평생 사용합니다.</p>
-        <div class="pricing-grid">
+        <h2 class="section-title">텀블벅 리워드</h2>
+        <p class="section-lead">텀블벅 런칭 기간 한정 가격. 1회 후원으로 평생 라이선스.</p>
+        <div class="pricing-grid pricing-grid-tumblbug">
           <div class="pricing-card">
             <h3 class="pricing-tier">Free</h3>
-            <div class="pricing-amount">$0</div>
+            <div class="pricing-amount">₩0</div>
+            <div class="pricing-once">구매 불필요</div>
             <ul class="pricing-features">
               <li>그룹 1개, 단축어 최대 10개</li>
               <li>클립보드 히스토리</li>
@@ -830,12 +894,14 @@
               <li>평생 업데이트</li>
             </ul>
           </div>
-          <div class="pricing-card pricing-card-highlight">
-            <h3 class="pricing-tier">Pro</h3>
+          <div class="pricing-card pricing-card-promoted">
+            <span class="pricing-badge">20명 한정 · 35% 할인</span>
+            <h3 class="pricing-tier">얼리버드 단일</h3>
             <div class="pricing-amount">
-              <span class="pricing-price">$14.99</span>
+              <span class="pricing-price">₩12,900</span>
+              <span class="pricing-original">₩19,900</span>
             </div>
-            <div class="pricing-once">1회 결제</div>
+            <div class="pricing-once">1 라이선스 · 런칭 한정</div>
             <ul class="pricing-features">
               <li><strong>무료 플랜의 모든 기능 포함</strong></li>
               <li>그룹 · 단축어 무제한</li>
@@ -843,11 +909,51 @@
               <li>활성 기기 1대 — 비활성화하면 다른 기기로 이동 가능</li>
               <li>14일 환불 보장 (사유 불문)</li>
             </ul>
-            <p class="pricing-note">
-              설치 후 앱 내에서 업그레이드 — 설정 → 라이센스 → Pro 구매.
-            </p>
+          </div>
+          <div class="pricing-card pricing-card-promoted">
+            <span class="pricing-badge">5명 한정 · 42% 할인</span>
+            <h3 class="pricing-tier">얼리버드 듀오 팩</h3>
+            <div class="pricing-amount">
+              <span class="pricing-price">₩22,900</span>
+              <span class="pricing-original">₩39,800</span>
+            </div>
+            <div class="pricing-once">2 라이선스 · 런칭 한정</div>
+            <ul class="pricing-features">
+              <li>Pro 라이선스 2개 (공유 또는 선물용)</li>
+              <li>각 1기기에서 활성화</li>
+              <li>위 Pro 기능 동일</li>
+            </ul>
+          </div>
+          <div class="pricing-card">
+            <h3 class="pricing-tier">일반 라이선스</h3>
+            <div class="pricing-amount">
+              <span class="pricing-price">₩19,900</span>
+            </div>
+            <div class="pricing-once">1 라이선스 · 정가</div>
+            <ul class="pricing-features">
+              <li>그룹 · 단축어 무제한</li>
+              <li>클라우드 동기화 (Google Drive · WebDAV)</li>
+              <li>캠페인 기간 내 상시 구매 가능</li>
+            </ul>
+          </div>
+          <div class="pricing-card">
+            <span class="pricing-badge">25% 할인</span>
+            <h3 class="pricing-tier">듀오 팩</h3>
+            <div class="pricing-amount">
+              <span class="pricing-price">₩29,900</span>
+              <span class="pricing-original">₩39,800</span>
+            </div>
+            <div class="pricing-once">2 라이선스 · 정가</div>
+            <ul class="pricing-features">
+              <li>Pro 라이선스 2개</li>
+              <li>개별 구매 대비 25% 절약</li>
+              <li>캠페인 기간 내 상시 구매 가능</li>
+            </ul>
           </div>
         </div>
+        <p class="pricing-note" style="text-align:center; margin-top: var(--space-xl);">
+          설치 후 앱 내에서 업그레이드 — 설정 → 라이센스 → Pro 구매.
+        </p>
       </div>
     </section>
 
